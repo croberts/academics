@@ -26,7 +26,7 @@
 - [ ] angular dynamics
 - [ ] collision detection
 - [ ] collision response
-- [ ] example of _intuitive_ control
+- [ ] example of intuitive control
 - [ ] character able to interact with environment
 
 ### game design
@@ -36,5 +36,5 @@
 ### solo projects
 
 ### collaborative projects
-- [ ] [titan squad](https://titansquad.github.io)
+- [x] [titan squad](https://titansquad.github.io)
 - [x] [vendetta](https://clrobert.github.io)

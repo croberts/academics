@@ -1,20 +1,40 @@
 # showreel
+### graphs
+- [x] [a* and djikstra's in python](https://github.com/clrobert/pathfinding)
+- [x] [resource manager as a dag in c++](https://github.com/clrobert/dag)
+
+### descision making
+- [ ] [minimax](https://github.com/clrobert/minimax)
+- [ ] ab pruning
+
 ### [graphics](https://github.com/clrobert/graphics)
+- [ ] blinn-phong shading
+- [ ] gouraud shading
+- [ ] physics based shading
+- [ ] texture mapping
+- [ ] camera auto-circling
+- [ ] simple particle system
+- [ ] normal mapping
+- [ ] global illumination
+- [ ] ambient occlusion
+- [ ] mirror reflections
+- [ ] ssao
+- [ ] area lighting
+- [ ] 3d game of life
+
 ### physics
-#### basic
 - [ ] angular dynamics
 - [ ] collision detection
 - [ ] collision response
-
-### gameplay
-#### basic
 - [ ] example of _intuitive_ control
 - [ ] character able to interact with environment
-- [x] [pathfinding](https://github.com/clrobert/pathfinding)
 
-#### intermediate
-- [ ] [decision making](https://github.com/clrobert/minimax)
+### game design
+- [ ] level design
+- [ ] systems design
 
-#### custom
-- [ ] mhg screenshots
-- [ ] vendetta screenshots
+### solo projects
+
+### collaborative projects
+- [ ] [titan squad](https://titansquad.github.io)
+- [x] [vendetta](https://clrobert.github.io)

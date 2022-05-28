@@ -1,9 +1,9 @@
 ### graphs
-- [x] [pathfinding](https://github.com/croberts/pathfinding) - a* and djikstra's in python
-- [x] [dag](https://github.com/croberts/dag) - a resource manager in c++
+[pathfinding](https://github.com/croberts/pathfinding) - a* and djikstra's in python
+[dag](https://github.com/croberts/dag) - a resource manager in c++
 
 ### descision making
-- [ ] [minimax](https://github.com/croberts/minimax)
+[minimax](https://github.com/croberts/minimax)
 - [ ] ab pruning
 
 ### math

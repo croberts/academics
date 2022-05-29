@@ -1,10 +1,18 @@
+default language is python; otherwise language is specified
+
+TODO
 ### algorithms
+#### pathfinding
 - [ ] a* 
 - [ ] djikstra's
-- [x] dag
+
+### data structures
+- [ ] dag
+- [x] dag - cpp
 
 ### game theory
-- [ ] miniamx
+- [ ] minimax
+- [ ] minimax - cpp 
 - [ ] ab pruning
 
 ### math

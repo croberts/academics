@@ -6,6 +6,8 @@ Default language is python unless otherwise specified.
 ## data structures
 - [ ] dag
 - [x] dag - cpp
+- [ ] binary tree
+- [ ] heap
 
 ## game theory
 - [ ] minimax

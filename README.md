@@ -1,13 +1,13 @@
 ### algorithms
-- [pathfinding](https://github.com/croberts/pathfinding) - a* and djikstra's in python
-- [dag](https://github.com/croberts/dag) - resource manager in c++
+- [ ] a* 
+- [ ] djikstra's
+- [x] dag
 
 ### game theory
-- [minimax](https://github.com/croberts/minimax)
+- [ ] miniamx
 - [ ] ab pruning
 
 ### math
-- [puzzles](https://github.com/croberts/puzzles) - worked problems from project euler, etc.
 - [ ] 3D mathematics and transformation example
-- [ ] advanced mathematics example
 - [ ] discrete math example
+- [ ] TBD advanced mathematics example

@@ -1,11 +1,10 @@
-from sets import Set
 
 
 def getMultiplesBelowLimit(multiplier, ceiling):
-	results = Set()
+	results = set()
 	result = 1
 	count = 0
-	while result < 1000 - multiplier: 
+	while result < ceiling - multiplier: 
 		count = count + 1
 		result = multiplier * count
 		results.add(result)
@@ -16,13 +15,13 @@ def main():
 	fives = getMultiplesBelowLimit(5, 1000)
 
 	multiples = threes | fives
-	print multiples
+	print(multiples)
 
 
 	sum = 0
 	for multiple in multiples:
 		sum = sum + multiple
 
-	print sum
+	print(sum)
 
 main()

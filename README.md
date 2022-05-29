@@ -26,3 +26,5 @@ Default language is python unless otherwise specified.
 ## problem sets
 - euler
 - [ ] huffman
+- [ ] travelling salesman
+- [ ] knapsack

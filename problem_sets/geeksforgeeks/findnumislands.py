@@ -39,48 +39,16 @@ Assumptions:
     now = n*9
     later = n^2
     -> now.
+
+  b. traverse nodes now? or in another loop?
+
   
 - Choose a root node, pref 0,0.
+
+
 - Call DFS on each component
-
-
-
 """
 
-class Graph: 
-  visited = []
-  subgraphs = None
-
-  def __init__(self, graph):
-    for row_index, row_value in enumerate(graph):
-      for col_index, cell_value in enumerate(row_value):
-        if cell_value == 1:
-          cell_value = self.get_adjacent_list(graph, row_index, col_index)
-
-          print(row_index, col_index, cell_value)
-    print(graph)
-  
-  def get_adjacent_list(self, graph, row_index, col_index):
-    adjacent = []
-    for i in range(-1, 2):
-      for j in range(-1, 2):
-        try:
-          if i + row_index != -1 and j + col_index != -1 and [i,j] != [0,0]:
-            if graph[row_index + i][col_index + j] == 1:
-              adjacent.append([row_index + i, col_index + j])
-        except IndexError:
-          pass
-    return adjacent
-  
-  def dfs():
-    root = None
-
-
-  class Node:
-    adjacent = []
-
-  #def numIslands(self, grid):
-  #  pass 
 
 graph_1 = [
   [1, 1, 0, 0, 0],
@@ -90,8 +58,30 @@ graph_1 = [
   [1, 0, 1, 0, 1]
 ]
 
-from pprint import pprint
-pprint(graph_1)
-  
-g = Graph(graph_1)
+def count_islands(graph):
+  islands = 0
+  for row_index, row_value in enumerate(graph):
+    for col_index, cell_value in enumerate(row_value):
+      if cell_value == 1:
+        islands += 1
+        cell_value = -1
+        dfs(graph, row_index, col_index)
 
+  return islands
+
+def dfs(graph, row_index, col_index):
+  for i in range(-1, 2):
+    for j in range(-1, 2):
+      try:
+        if i + row_index != -1 and j + col_index != -1 and [i,j] != [0,0]:
+          if graph[row_index + i][col_index + j] == 1:
+            graph[row_index + i][col_index + j] = -1
+            dfs(graph, row_index + i, col_index + j)
+          else:
+            graph[row_index + i][col_index + j] = -1
+      except IndexError:
+        pass
+
+
+islands = count_islands(graph_1)
+print(islands)

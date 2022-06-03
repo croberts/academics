@@ -40,15 +40,13 @@ class Node:
 from collections import defaultdict
 
 class Solution:
-  clone = [[]]
-  visited = defaultdict(set)
-
-  #def build_graph(self, adj_list):
-  #  for edge in adj_list:
-
   def cloneGraph(self, original_root_node):
-    if not original_root_node:
+    self.clone = [[]]
+    self.visited = defaultdict(set)
+
+    if original_root_node is None:
       return original_root_node
+
 
     new_root_node = Node(original_root_node.val)
     self.clone.append(new_root_node)
@@ -56,10 +54,10 @@ class Solution:
     self.dfs(new_root_node, original_root_node)
 
     #print(self.visited)
-    #print(self.clone[1].neighbors)
-    print(self.clone)
-
-    return self.clone[1]
+    #print(self.clone)
+    self.clone = self.clone[1:]
+    #print(self.clone)
+    return self.clone[0]
 
   def dfs(self, new_node, original_node):
     self.visited[original_node.val] = 1
@@ -82,7 +80,7 @@ class Solution:
       else:
           # append the existing node to the current node's list of neighbors.
           new_node.neighbors.append(self.clone[original_neighbor.val])
-    print("node:", new_node.val, new_node.neighbors)
+
 
 
 
@@ -91,7 +89,6 @@ build a graph from a node ref.
 if that doesnt work, and maybe eventually anyways, build a graph from an adjacency list.
 """
 
-example_1 = [[2,4],[1,3],[2,4],[1,3]]
 
 def build_graph(adj_list):
   graph = [Node(index + 1) for index, value in enumerate(adj_list)]
@@ -123,11 +120,13 @@ def print_graph(node):
     for neighbor in node.neighbors:
       print_graph(neighbor)
 
-graph_1 = build_graph(example_1)
+example_1 = [[2,4],[1,3],[2,4],[1,3]]
+example_2 = [[]]
+graph_1 = build_graph(example_2)
 
 #print_graphs(graph_1)
 
 sol = Solution()
 
 clone = sol.cloneGraph(graph_1[0])
-#print_graph(clone)
+print_graph(clone)

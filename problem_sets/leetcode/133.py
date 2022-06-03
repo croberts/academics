@@ -41,22 +41,21 @@ from collections import defaultdict
 
 class Solution:
   def cloneGraph(self, original_root_node):
-    self.clone = [[]]
+    self.clone = {}
     self.visited = defaultdict(set)
 
     if original_root_node is None:
       return original_root_node
 
     new_root_node = Node(original_root_node.val)
-    self.clone.append(new_root_node)
+    self.clone[1] = new_root_node
 
     self.dfs(new_root_node, original_root_node)
 
     #print(self.visited)
-    self.clone = self.clone[1:]
 
-    self.print_clone()
-    return self.clone[0]
+    #self.print_clone()
+    return self.clone[1]
 
   def dfs(self, new_node, original_node):
     self.visited[original_node.val] = 1
@@ -71,7 +70,7 @@ class Solution:
         # append it to the clone,
         # visit it.
         new_neighbor = Node(original_neighbor.val)
-        self.clone.append(new_neighbor)
+        self.clone[original_neighbor.val] = new_neighbor
         new_node.neighbors.append(new_neighbor)
 
         nbrs = []
@@ -87,7 +86,7 @@ class Solution:
           new_node.neighbors.append(self.clone[original_neighbor.val])
 
   def print_clone(self):
-    for node in self.clone:
+    for node in self.clone.values():
       nbrs = []
       for neighbor in node.neighbors:
         if neighbor:
@@ -109,7 +108,7 @@ def build_graph(adj_list):
 
   return graph
 
-def print_graphs(g):
+def print_edge_graph(g):
   for x in g:
     n = []
     for y in x.neighbors:
@@ -123,8 +122,6 @@ example_3 = [[2,3,4],[1,7],[1],[1,5,6,8],[4],[4],[2],[4]]
 #           [[2,3,4],[1,7],[1],[1,5,6,8],[3],[3],[2],[3]]
 
 graph_1 = build_graph(example_3)
-
-#print_graphs(graph_1)
 
 sol = Solution()
 

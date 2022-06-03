@@ -41,7 +41,11 @@ from collections import defaultdict
 
 class Solution:
   def cloneGraph(self, original_root_node):
+    # I use a dict to avoid indexing confusion. (Indexing starts at 1.)
+    # I used a list for a few iterations but it was too unwieldy.
     self.clone = {}
+
+    # default dict helps with nonexistent values
     self.visited = defaultdict(set)
 
     if original_root_node is None:
@@ -53,7 +57,6 @@ class Solution:
     self.dfs(new_root_node, original_root_node)
 
     #print(self.visited)
-
     #self.print_clone()
     return self.clone[1]
 
@@ -66,23 +69,17 @@ class Solution:
       if not self.visited[original_neighbor.val]:
 
         # create a new node,
-        # append it to the current node's neighbors,
-        # append it to the clone,
+        # add it to the cloned graph,
+        # append it to the new_node's neighbors,
         # visit it.
         new_neighbor = Node(original_neighbor.val)
         self.clone[original_neighbor.val] = new_neighbor
         new_node.neighbors.append(new_neighbor)
 
-        nbrs = []
-        for neighbor in new_node.neighbors:
-          nbrs.append(neighbor.val)
-
-        #print("node: ", new_node.val, nbrs)
-
         # traverse into the new neighbors.
         self.dfs(new_neighbor, original_neighbor)
       else:
-          # append the existing node to the current node's list of neighbors.
+          # if we have visited it before, just add it to the list of neighbors
           new_node.neighbors.append(self.clone[original_neighbor.val])
 
   def print_clone(self):

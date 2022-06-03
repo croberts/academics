@@ -47,16 +47,15 @@ class Solution:
     if original_root_node is None:
       return original_root_node
 
-
     new_root_node = Node(original_root_node.val)
     self.clone.append(new_root_node)
 
     self.dfs(new_root_node, original_root_node)
 
     #print(self.visited)
-    #print(self.clone)
     self.clone = self.clone[1:]
-    #print(self.clone)
+
+    self.print_clone()
     return self.clone[0]
 
   def dfs(self, new_node, original_node):
@@ -75,14 +74,26 @@ class Solution:
         self.clone.append(new_neighbor)
         new_node.neighbors.append(new_neighbor)
 
+        nbrs = []
+        for neighbor in new_node.neighbors:
+          nbrs.append(neighbor.val)
+
+        #print("node: ", new_node.val, nbrs)
+
         # traverse into the new neighbors.
         self.dfs(new_neighbor, original_neighbor)
       else:
           # append the existing node to the current node's list of neighbors.
           new_node.neighbors.append(self.clone[original_neighbor.val])
 
+  def print_clone(self):
+    for node in self.clone:
+      nbrs = []
+      for neighbor in node.neighbors:
+        if neighbor:
+          nbrs.append(neighbor.val)
 
-
+      print("node: ", node.val, "nbrs:", nbrs)
 
 """
 build a graph from a node ref.
@@ -105,28 +116,17 @@ def print_graphs(g):
       n.append(y.val)
     print(x.val, ": ", n)
 
-def print_graph(node):
-  nbrs = []
-  #print(node.neighbors)
-  #return
-  if node:
-    for neighbor in node.neighbors:
-      if neighbor:
-        nbrs.append(neighbor.val)
-
-  if node:
-    print("node: ", node.val, "nbrs:", nbrs)
-
-    for neighbor in node.neighbors:
-      print_graph(neighbor)
 
 example_1 = [[2,4],[1,3],[2,4],[1,3]]
 example_2 = [[]]
-graph_1 = build_graph(example_2)
+example_3 = [[2,3,4],[1,7],[1],[1,5,6,8],[4],[4],[2],[4]]
+#           [[2,3,4],[1,7],[1],[1,5,6,8],[3],[3],[2],[3]]
+
+graph_1 = build_graph(example_3)
 
 #print_graphs(graph_1)
 
 sol = Solution()
 
 clone = sol.cloneGraph(graph_1[0])
-print_graph(clone)
+
